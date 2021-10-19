@@ -1,0 +1,51 @@
+{
+    "semantics": "moore",
+	"inputs": ["r"],
+	"outputs": ["g_1", "g_2", "g_3", "g_4"],
+	"assumptions": [],
+	"guarantees": [
+		"g_1 && g_2 && !g_3 && !g_4",
+		"X (!g_1 && g_2 && !g_3 && !g_4)",
+		"X X (!g_1 && !g_2 && !g_3 && !g_4)",
+		"X X X (g_1 && !g_2 && !g_3 && !g_4)",
+		"X X X X (!g_1 && !g_2 && g_3 && !g_4)",
+		"X X X X X (g_1 && !g_2 && g_3 && !g_4)",
+		"X X X X X X (!g_1 && g_2 && g_3 && !g_4)",
+		"X X X X X X X (g_1 && g_2 && g_3 && !g_4)",
+		"X X X X X X X X (!g_1 && !g_2 && !g_3 && g_4)",
+		"X X X X X X X X X (g_1 && !g_2 && !g_3 && g_4)",
+		"X X X X X X X X X X (!g_1 && g_2 && !g_3 && g_4)",
+		"X X X X X X X X X X X (g_1 && g_2 && !g_3 && g_4)",
+		"X X X X X X X X X X X X (!g_1 && !g_2 && g_3 && g_4)",
+		"X X X X X X X X X X X X X (g_1 && !g_2 && g_3 && g_4)",
+		"X X X X X X X X X X X X X X (!g_1 && g_2 && g_3 && g_4)",
+		"X X X X X X X X X X X X X X X G (g_1 && g_2 && g_3 && g_4)"
+	]	
+
+}
+#
+{
+    "semantics": "moore",
+	"inputs": ["r"],
+	"outputs": ["g_1", "g_2", "g_3", "g_4"],
+	"assumptions": [],
+	"guarantees": [
+		"!g_1 && !g_2 && !g_3 && !g_4",
+		"X (g_1 && !g_2 && !g_3 && !g_4)",
+		"X X (!g_1 && g_2 && !g_3 && !g_4)",
+		"X X X (g_1 && g_2 && !g_3 && !g_4)",
+		"X X X X (!g_1 && !g_2 && g_3 && !g_4)",
+		"X X X X X (g_1 && !g_2 && g_3 && !g_4)",
+		"X X X X X X (!g_1 && g_2 && g_3 && !g_4)",
+		"X X X X X X X (g_1 && g_2 && g_3 && !g_4)",
+		"X X X X X X X X (!g_1 && !g_2 && !g_3 && g_4)",
+		"X X X X X X X X X (g_1 && !g_2 && !g_3 && g_4)",
+		"X X X X X X X X X X (!g_1 && g_2 && !g_3 && g_4)",
+		"X X X X X X X X X X X (g_1 && g_2 && !g_3 && g_4)",
+		"X X X X X X X X X X X X (!g_1 && !g_2 && g_3 && g_4)",
+		"X X X X X X X X X X X X X (g_1 && !g_2 && g_3 && g_4)",
+		"X X X X X X X X X X X X X X (!g_1 && g_2 && g_3 && g_4)",
+		"X X X X X X X X X X X X X X X G (g_1 && g_2 && g_3 && g_4)"
+	]	
+
+}

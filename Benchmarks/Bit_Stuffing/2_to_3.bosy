@@ -1,0 +1,44 @@
+{
+    "semantics": "moore",
+	"inputs": ["i_0"],
+	"outputs": ["s", "p"],
+	"assumptions": [
+	],
+	"guarantees": [
+		"!p",
+		"X !p",
+
+		"G (i_0 -> X s)",
+		"G (!i_0 -> X !s)",
+
+		"X (G (((s && i_0) || (!s && !i_0)) -> X (p)))",
+
+		"X (G (((s && !i_0) || (!s && i_0)) -> X (!p)))"
+	]	
+
+}
+#
+{
+    "semantics": "moore",
+	"inputs": ["i_0"],
+	"outputs": ["s", "p", "p_0"],
+	"assumptions": [
+	],
+	"guarantees": [
+		"!p_0",
+		"!p",
+		"X (!p_0)",
+		"X !p",
+		"X (X !p)",
+
+		"G (i_0 -> X s)",
+		"G (!i_0 -> X !s)",
+
+		"X (G (!p_0 && ((s && i_0) || (!s && !i_0)) -> X (p_0 && !p)))",
+		"X (G (p_0 && ((s && i_0) || (!s && !i_0)) -> X (!p_0 && p)))",
+
+		"X (G (!p_0 && ((s && !i_0) || (!s && i_0)) -> X (!p_0 && !p)))",
+		"X (G (p_0 && ((s && !i_0) || (!s && i_0)) -> X (!p_0 && !p)))"
+	]	
+
+}

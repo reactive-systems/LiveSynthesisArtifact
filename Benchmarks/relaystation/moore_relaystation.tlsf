@@ -1,0 +1,35 @@
+INFO {
+  TITLE:       "Relay Station"
+  DESCRIPTION: "The specification describes a satilite in the orbit of another planet,
+which reveives messages from a number of base stations on the planet
+and relays them to earth. Therefore the satilite regularly collects
+all messages from the base sations and publishs them as soon as
+messages from all base stations are received. Furthermore, the
+messages get acknowledged by the satilite, since the base stations do
+not send new messages until they received an acknowledgement for the
+last transmitted one. The specification is parameterized in the number 
+of base stations on the planet."
+  SEMANTICS:   Moore
+  TARGET:      Mealy
+}
+
+MAIN {
+  INPUTS {
+    msg_0;
+  }
+  OUTPUTS {
+    publish;
+    ack_0;
+  }
+  ASSUME {
+    (G ((msg_0) -> ((ack_0) || (X ((ack_0) R (! (msg_0)))))));
+  }
+  GUARANTEE {
+    (publish);
+    ((G (F (msg_0))) <-> (G (F (publish))));
+    (G ((((msg_0) && (true)) && (true)) -> (F (ack_0))));
+    (G ((msg_0) -> (F (ack_0))));
+    (G (((publish) -> ((X (! (publish))) W (msg_0))) && ((msg_0) -> ((! (ack_0)) W (publish)))));
+  }
+}
+
