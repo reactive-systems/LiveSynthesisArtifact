@@ -1,0 +1,73 @@
+INFO {
+  TITLE:       "Visiting Robot"
+  DESCRIPTION: "A driving Robot that visits n locations"
+  SEMANTICS:   Moore
+  TARGET:      Mealy
+}
+
+GLOBAL {
+  PARAMETERS {
+    n = 3; 
+  }
+}
+
+MAIN {
+
+  INPUTS {
+    } 
+
+  OUTPUTS {
+    l[n]; // grant signals of the standard processes
+    g_m; // grant signal of the master process
+  }
+
+  ASSUMPTIONS {
+  }
+
+  INVARIANTS {
+  }
+
+  GUARANTEES {
+    // every standard request is eventually granted
+    &&[0 <= i < n]
+      F (l[i]) ;
+    &&[0 <= i < n]  
+	   G(l[i] -> (&&[0 <= j < i] !l[j] &&  &&[i < k < n] !l[k]))
+  }
+  
+}#
+INFO {
+  TITLE:       "Patrolling"
+  DESCRIPTION: "Patrolling between locations"
+  SEMANTICS:   Moore
+  TARGET:      Mealy
+}
+
+GLOBAL {
+  PARAMETERS {
+    n = 5; 
+  }
+}
+
+MAIN {
+
+  INPUTS {
+    } 
+
+  OUTPUTS {
+    l[n]; // grant signals of the standard processes
+  }
+
+  ASSUMPTIONS {
+  }
+
+  INVARIANTS {
+  }
+
+  GUARANTEES {
+   G &&[0 <= i < n] F (l[i]);
+	 &&[0 <= i < n]  
+	   G(l[i] -> (&&[0 <= j < i] !l[j] &&  &&[i < k < n] !l[k]))
+  }
+  
+}

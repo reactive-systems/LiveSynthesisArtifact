@@ -1,0 +1,38 @@
+INFO {
+  TITLE:       "Sequenced Visit"
+  DESCRIPTION: "Visit locations in a sequence"
+  SEMANTICS:   Moore
+  TARGET:      Mealy
+}
+
+GLOBAL {
+  PARAMETERS {
+    n = 3; 
+  }
+}
+
+MAIN {
+
+  INPUTS {
+  r;
+    } 
+
+  OUTPUTS {
+    l[n]; // grant signals of the standard processes
+  }
+
+  ASSUMPTIONS {
+  }
+
+  INVARIANTS {
+  }
+
+  GUARANTEES {
+  G(r -> (X( ! l[0] -> X l[0])));
+    // every standard request is eventually granted
+     F (l[0] && (F (l[1] ))) ;
+    &&[0 <= i < n]  
+	   G(l[i] -> (&&[0 <= j < i] !l[j] &&  &&[i < k < n] !l[k]))
+  }
+  
+}

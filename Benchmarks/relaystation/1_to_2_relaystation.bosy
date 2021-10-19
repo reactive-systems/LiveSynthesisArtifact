@@ -1,0 +1,6 @@
+{"semantics": "moore", "inputs": ["measurement_0"], "outputs": ["report", "response_0"], "assumptions": [], "guarantees": ["(! (response_0))", "(G ((measurement_0) -> (X (F (response_0)))))", "(G (F ((G (! (measurement_0))) -> (G (! (response_0))))))", "(G ((F (measurement_0)) -> (F (report))))", "(G ((G (! (measurement_0))) -> (F (G (! (report))))))"] }
+#
+{"semantics": "moore", "inputs": ["measurement_0", "measurement_1"], "outputs": ["report", "response_0", "response_1"], "assumptions": [], "guarantees": ["(! (response_0))", "(! (response_1))", "(G (((measurement_0) -> (X (F (response_0)))) && ((measurement_1) -> (X (F (response_1))))))", "(G ((F ((G (! (measurement_0))) -> (G (! (response_0))))) && (F ((G (! (measurement_1))) -> (G (! (response_1)))))))", "(G (((F (measurement_0)) && (F (measurement_1))) -> (F (report))))", "(G (((G (! (measurement_0))) || (G (! (measurement_1)))) -> (F (G (! (report))))))"] }
+
+
+

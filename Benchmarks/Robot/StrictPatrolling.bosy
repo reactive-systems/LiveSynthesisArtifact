@@ -1,0 +1,2 @@
+{"semantics": "moore", "inputs": [], "outputs": ["l_0", "l_1"], "assumptions": [], "guarantees": ["(G ((l_1) -> (X ((! (l_1)) U (l_0)))))", "(G (F ((l_0) && (F (l_1)))))", "(G ((l_0) -> (! (l_1))))", "(G ((l_1) -> (! (l_0))))"] }
+

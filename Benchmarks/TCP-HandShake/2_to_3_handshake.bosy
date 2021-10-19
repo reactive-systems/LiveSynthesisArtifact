@@ -1,0 +1,46 @@
+{
+    "semantics": "moore",
+	"inputs": ["sa_0", "sa_1"],
+	"outputs": ["syn_0", "ack_0", "conn_0", "syn_1", "ack_1", "conn_1"],
+	"assumptions": [
+	],
+	"guarantees": [
+		"!conn_0",
+		"syn_0",
+		"!ack_0",
+		"!conn_1",
+		"syn_1",
+		"!ack_1",
+		"G (sa_0 && !conn_0 -> X (ack_0 && conn_0))",
+		"G (!sa_0 && !conn_0 -> X (!ack_0 && !conn_0))",
+		"G (sa_1 && !conn_1 -> X (ack_1 && conn_1))",
+		"G (!sa_1 && !conn_1 -> X (!ack_1 && !conn_1))",
+	]	
+
+}
+#
+{
+    "semantics": "moore",
+	"inputs": ["sa_0", "sa_1", "sa_2"],
+	"outputs": ["syn_0", "ack_0", "conn_0", "syn_1", "ack_1", "conn_1", "syn_2", "ack_2", "conn_2"],
+	"assumptions": [
+	],
+	"guarantees": [
+		"!conn_0",
+		"syn_0",
+		"!ack_0",
+		"!conn_1",
+		"syn_1",
+		"!ack_1",
+		"!conn_2",
+		"syn_2",
+		"!ack_2",
+		"G (sa_0 && !conn_0 -> X (ack_0 && conn_0))",
+		"G (!sa_0 && !conn_0 -> X (!ack_0 && !conn_0))",
+		"G (sa_1 && !conn_1 -> X (ack_1 && conn_1))",
+		"G (!sa_1 && !conn_1 -> X (!ack_1 && !conn_1))",
+		"G (sa_2 && !conn_2 -> X (ack_2 && conn_2))",
+		"G (!sa_2 && !conn_2 -> X (!ack_2 && !conn_2))",
+	]	
+
+}

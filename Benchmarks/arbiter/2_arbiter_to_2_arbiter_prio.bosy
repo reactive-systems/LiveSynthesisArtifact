@@ -1,0 +1,15 @@
+{
+    "semantics": "moore",
+	"inputs": ["r_0", "r_1"],
+	"outputs": ["g_0", "g_1"],
+	"assumptions": [],
+	"guarantees": [
+		"G (!g_0 || !g_1)",
+		"G (r_0 -> F (g_0))",
+		"G (r_1 -> F (g_1))"
+	]	
+
+}
+#
+{"semantics": "moore", "inputs": ["r_0", "r_1"], "outputs": ["g_0", "g_1"], "assumptions": ["(G (F (! (r_0))))"], "guarantees": ["(G ((! (g_0)) || (! (g_1))))", "(G ((! (g_0)) || (! (g_1))))", "(G ((r_1) -> (F (g_1))))", "(G ((r_0) -> (X ((! (g_1)) U (g_0)))))"] }
+

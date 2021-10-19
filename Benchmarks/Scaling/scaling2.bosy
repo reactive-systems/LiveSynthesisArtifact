@@ -1,0 +1,29 @@
+{
+    "semantics": "moore",
+	"inputs": ["r"],
+	"outputs": ["g_1", "g_2", "g_3"],
+	"assumptions": [],
+	"guarantees": [
+		"g_1 && g_2 && !g_3",
+		"X (!g_1 && g_2 && !g_3)",
+		"X X (!g_1 && !g_2 && !g_3)",
+		"X X X (g_1 && !g_2 && !g_3)",
+		"X X X X G (g_3)"
+	]	
+
+}
+#
+{
+    "semantics": "moore",
+	"inputs": ["r"],
+	"outputs": ["g_1", "g_2", "g_3"],
+	"assumptions": [],
+	"guarantees": [
+		"!g_1 && !g_2 && !g_3",
+		"X (g_1 && !g_2 && !g_3)",
+		"X X (!g_1 && g_2 && !g_3)",
+		"X X X (g_1 && g_2 && !g_3)",
+		"X X X X G (g_3)"
+	]	
+
+}

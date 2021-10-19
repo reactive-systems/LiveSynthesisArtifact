@@ -1,0 +1,2 @@
+{"semantics": "moore", "inputs": ["msg_0"], "outputs": ["publish", "ack_0"], "assumptions": [], "guarantees": ["(publish)", "((G (F (msg_0))) <-> (G (F (publish))))", "(G ((msg_0) -> (F (ack_0))))", "((G ((msg_0) -> ((ack_0) || (X ((ack_0) R (! (msg_0))))))) -> (G (((publish) -> (((X (! (publish))) U (msg_0)) || (X (G (! (publish)))))) && ((msg_0) -> (((! (ack_0)) U (publish)) || (G (! (ack_0))))))))"] }
+

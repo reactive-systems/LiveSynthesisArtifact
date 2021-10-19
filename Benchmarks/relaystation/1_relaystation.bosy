@@ -1,0 +1,2 @@
+{"semantics": "moore", "inputs": ["measurement_0"], "outputs": ["report", "response_0"], "assumptions": [], "guarantees": ["(! (response_0))", "(G ((measurement_0) -> (X (F (response_0)))))", "(G (F ((G (! (measurement_0))) -> (G (! (response_0))))))", "(G ((F (measurement_0)) -> (F (report))))", "(G ((G (! (measurement_0))) -> (F (G (! (report))))))"] }
+

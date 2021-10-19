@@ -1,0 +1,53 @@
+INFO {
+  TITLE:       "Relay Station"
+  DESCRIPTION: "The specification describes a satilite in the orbit of another planet,
+which reveives messages from a number of base stations on the planet
+and relays them to earth. Therefore the satilite regularly collects
+all messages from the base sations and publishs them as soon as
+messages from all base stations are received. Furthermore, the
+messages get acknowledged by the satilite, since the base stations do
+not send new messages until they received an acknowledgement for the
+last transmitted one. The specification is parameterized in the number 
+of base stations on the planet."
+  SEMANTICS:   Moore
+  TARGET:      Mealy
+}
+
+GLOBAL {
+  PARAMETERS {
+    // number of base stations sending messages
+    n = 1;
+  }
+}
+
+MAIN {
+  
+  INPUTS {
+    // measurements send by the base stations
+    measurement[n];
+  }
+  
+  OUTPUTS {
+    // response containing the next processing steps for the base station
+    response[n];
+    // report measurements back to earth
+    report;
+  }
+  
+  GUARANTEE {
+    // wait for a measurement first
+    &&[0 <= i < n] ! response[i];
+  
+    // every measurement must be responded
+    G &&[0 <= i < n] (measurement[i] -> X F response[i]);
+
+    // no measurement -> no response
+    G &&[0 <= i < n] F ((G !measurement[i]) -> (G !response[i]));
+
+    // a report gets generated whenever a measurement of every base
+    // station has been received
+    G ((&&[0 <= i < n] F measurement[i]) -> F report);
+
+    G ((||[0 <= i < n] G ! measurement[i]) -> F G ! report);
+  }
+}
